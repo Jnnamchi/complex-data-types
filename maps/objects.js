@@ -11,7 +11,9 @@
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-let newObject
+let newObject = {
+	key: "value"
+}
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -29,7 +31,7 @@ let addNewKVPair = {
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-
+addNewKVPair.two = 2
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -48,7 +50,7 @@ let getPatientAge = {
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-let patientAge
+let patientAge = getPatientAge.age
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -77,7 +79,11 @@ let patientCopy = JSON.parse(JSON.stringify(patient))
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
+patient.age++
+patient.pastConditions.push("vomiting")
 
+let indexOfTV = patient.hobbies.indexOf("TV")
+patient.hobbies.splice(indexOfTV, 1)
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -93,7 +99,7 @@ let checkContains = generateRandomObject()
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-let containsHobbies
+let containsHobbies = "hobbies" in checkContains
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -119,7 +125,7 @@ let sortMyKeys = {
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-let sortedKeys
+let sortedKeys = Object.keys(sortMyKeys).sort()
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -149,7 +155,15 @@ let clearMeCopy = clearMe
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-
+delete clearMe.name
+delete clearMe.age
+delete clearMe.pastConditions
+delete clearMe.hobbies
+delete clearMe.born
+delete clearMe.isNewPatient
+delete clearMe.height
+delete clearMe.weight
+delete clearMe.remarks
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -165,7 +179,7 @@ let emptyObject = generateRandomEmptyObject()
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-let isEmpty
+let isEmpty = Object.keys(emptyObject).length === 0
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -212,8 +226,8 @@ let ICUWard = {
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-let spotsLeft
-let atFullCapacity
+let spotsLeft = (ICUWard.room1.capacity - ICUWard.room1.patients.length) + (ICUWard.room2.capacity - ICUWard.room2.patients.length)
+let atFullCapacity = spotsLeft  === 0
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -291,9 +305,15 @@ let jupiter = {
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-let distanceFromOrigin
-let sizeInAUs
-let argonOnEarthLikeMars
+let location = solarSystem.properties.location
+let distanceFromOrigin = Math.round(Math.sqrt(location.x**2 + location.y**2 + location.z**2))
+
+let sizeInAUs = (solarSystem.properties.size / solarSystem.properties.planets[2].distance).toFixed(2)
+
+let planets = solarSystem.properties.planets
+let argonOnEarthLikeMars = planets[2].atmosphere.argon === planets[3].atmosphere.argon
+
+solarSystem.properties.planets.push(jupiter)
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -433,9 +453,9 @@ if (sortedKeys !== undefined && JSON.stringify(sortedKeys) === JSON.stringify(co
   passedTests++
 } else {
   console.log(incorrectMsg + "The keys of 'sortMyKeys' sorted into 'sortedKeys' array should look like:")
-  console.log(sortedKeys)
-  console.log("but it should look like:")
   console.log(correctSortedKeys)
+  console.log("but it looks like:")
+  console.log(sortedKeys)
 }
 totalTests++
 console.log()
@@ -492,7 +512,7 @@ console.log()
 
 // Deep object 2
 let correctDistanceFromOrigin = Math.round(Math.sqrt(solarSystem.properties.location.x**2 + solarSystem.properties.location.y**2 + solarSystem.properties.location.z**2))
-let correctSizeInAUs = Math.round(100 * solarSystem.properties.size / solarSystem.properties.planets[2].distance) / 100
+let correctSizeInAUs = (solarSystem.properties.size / solarSystem.properties.planets[2].distance).toFixed(2)
 let correctArgonOnEarthLikeMars = solarSystem.properties.planets[2].atmosphere.argon === solarSystem.properties.planets[3].atmosphere.argon
 
 if (distanceFromOrigin !== undefined && sizeInAUs !== undefined && argonOnEarthLikeMars !== undefined &&

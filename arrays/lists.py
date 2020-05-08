@@ -7,7 +7,7 @@
 #
 ###################### YOUR CODE BELOW THIS LINE #######################
 
-newList = None
+newList = [ 1, 2, 3 ]
 
 ########################################################################
 
@@ -31,7 +31,8 @@ appendElement = "ok?"
 #
 ###################### YOUR CODE BELOW THIS LINE #######################
 
-listCopy = None
+listCopy = list1[:]
+listCopy.append(appendElement)
 
 ########################################################################
 
@@ -55,7 +56,8 @@ cycleMeCopy = list(cycleMe)
 #
 ###################### YOUR CODE BELOW THIS LINE #######################
 
-
+cycleMe.append(cycleMe.pop(0))
+cycleMe.append(cycleMe.pop(0))
 
 ########################################################################
 
@@ -74,7 +76,7 @@ keepMe = clearJustMe
 #
 ###################### YOUR CODE BELOW THIS LINE #######################
 
-
+clearJustMe = []
 
 ########################################################################
 
@@ -93,7 +95,7 @@ loseMe = clearAll
 #
 ###################### YOUR CODE BELOW THIS LINE #######################
 
-
+clearAll.clear()
 
 ########################################################################
 
@@ -111,7 +113,8 @@ allScoresCopy = list(allScores)
 #
 ###################### YOUR CODE BELOW THIS LINE #######################
 
-top3Scores = None
+allScores.sort(reverse=True)
+top3Scores = allScores[0:3]
 
 ########################################################################
 
@@ -265,6 +268,7 @@ elif type(top3Scores) is list and top3Scores == correctTop3Scores:
 	print(allScoresCopy)
 	print("and the the top 3 scores you saved into 'top3Scores' were:")
 	print(top3Scores)
+	passedTests+= 1
 else:
 	print(incorrectMsg + "The scores were: ")
 	print(allScoresCopy)

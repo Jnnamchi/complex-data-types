@@ -272,6 +272,7 @@ else:
 	print(correctTop3Scores)
 	print("but you got:")
 	print(top3Scores)
+totalTests += 1
 print("")
 
 # Final Test Tally Determination

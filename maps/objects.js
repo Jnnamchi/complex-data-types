@@ -308,7 +308,7 @@ let jupiter = {
 let location = solarSystem.properties.location
 let distanceFromOrigin = Math.round(Math.sqrt(location.x**2 + location.y**2 + location.z**2))
 
-let sizeInAUs = (solarSystem.properties.size / solarSystem.properties.planets[2].distance).toFixed(2)
+let sizeInAUs = parseFloat((solarSystem.properties.size / solarSystem.properties.planets[2].distance).toFixed(2))
 
 let planets = solarSystem.properties.planets
 let argonOnEarthLikeMars = planets[2].atmosphere.argon === planets[3].atmosphere.argon
@@ -512,7 +512,7 @@ console.log()
 
 // Deep object 2
 let correctDistanceFromOrigin = Math.round(Math.sqrt(solarSystem.properties.location.x**2 + solarSystem.properties.location.y**2 + solarSystem.properties.location.z**2))
-let correctSizeInAUs = (solarSystem.properties.size / solarSystem.properties.planets[2].distance).toFixed(2)
+let correctSizeInAUs = parseFloat((solarSystem.properties.size / solarSystem.properties.planets[2].distance).toFixed(2))
 let correctArgonOnEarthLikeMars = solarSystem.properties.planets[2].atmosphere.argon === solarSystem.properties.planets[3].atmosphere.argon
 
 if (distanceFromOrigin !== undefined && sizeInAUs !== undefined && argonOnEarthLikeMars !== undefined &&
